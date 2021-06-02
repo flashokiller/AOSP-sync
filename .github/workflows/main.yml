@@ -1,0 +1,14 @@
+# ./.github/workflows/rename.yaml
+name: Rename Directory
+
+on:
+  push:
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: repo init --depth=1 -u https://android.googlesource.com/platform/manifest/ -b android-11.0.0_r37
+      - run: repo sync -c --force-sync --no-tags --no-clone-bundle -j$(nproc --all)
+      - uses: EndBug/add-and-commit@v5.1.0
