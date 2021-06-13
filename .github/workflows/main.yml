@@ -1,4 +1,3 @@
-# ./.github/workflows/rename.yaml
 name: Rename Directory
 
 on:
