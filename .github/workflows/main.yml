@@ -1,3 +1,4 @@
+# ./.github/workflows/rename.yaml
 name: Rename Directory
 
 on:
@@ -23,7 +24,8 @@ jobs:
       - uses: installing repo sync
       - run: |
         mkdir -p ~/bin && PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-        chmod a+x ~/bin/repo
+      - uses: ok
+      - run: chmod a+x ~/bin/repo
       - uses: repo sync
       - run: |
         repo init --depth=1 -u https://android.googlesource.com/platform/manifest/ -b android-11.0.0_r37 && repo sync -c --force-sync --no-tags --no-clone-bundle -j$(nproc --all)
